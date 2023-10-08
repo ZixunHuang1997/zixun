@@ -4699,6 +4699,8 @@ figcaption {
 .no-link-block.left {
   width: auto;
   margin-left: 3%;
+  margin-right: 3%;
+  display: block;
 }
 
 .no-link-block.right-copy {
@@ -5279,7 +5281,7 @@ figcaption {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 0 0% 0 3%;
+  margin: 0 3%;
   display: flex;
   position: -webkit-sticky;
   position: sticky;
@@ -6419,6 +6421,7 @@ figcaption {
 
 .div-block-47 {
   margin-left: 3%;
+  margin-right: 3%;
 }
 
 .text-span-12, .text-span-13 {
@@ -6520,6 +6523,21 @@ figcaption {
 
 .text-block-8 {
   display: none;
+}
+
+.text-block-9 {
+  color: var(--0-85white);
+  text-align: justify;
+  margin-top: 10px;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.2em;
+}
+
+.text-span-38, .text-span-39 {
+  font-size: 12px;
+  font-style: italic;
 }
 
 @media screen and (min-width: 1920px) {
@@ -9102,6 +9120,14 @@ figcaption {
     font-size: 8px;
     line-height: 1em;
   }
+
+  .text-block-9 {
+    font-size: 12px;
+  }
+
+  .text-span-38, .text-span-39 {
+    font-size: 8px;
+  }
 }
 
 #w-node-_59b12b89-dd2d-a3d6-f1ac-2f5c9eced6d6-49ac4c73 {
@@ -9337,7 +9363,7 @@ figcaption {
   grid-area: 4 / 5 / 6 / 7;
 }
 
-#w-node-_9fb95d91-1987-cdb3-3474-2fc9bc8f0a34-d99cc347, #w-node-d905d31d-fc2c-e761-a256-28ee5429c2e5-d99cc347, #w-node-_574a319c-d211-5fa0-0cbe-9441c37291ba-d99cc347, #w-node-_878c08ac-5f1f-3065-0cd2-4d7a0116f267-d99cc347 {
+#w-node-d905d31d-fc2c-e761-a256-28ee5429c2e5-d99cc347, #w-node-_574a319c-d211-5fa0-0cbe-9441c37291ba-d99cc347, #w-node-_878c08ac-5f1f-3065-0cd2-4d7a0116f267-d99cc347 {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
@@ -9453,7 +9479,7 @@ figcaption {
   align-self: auto;
 }
 
-#w-node-_79f0c81e-60c0-de0a-c21d-db075633c446-d99cc347, #w-node-_79f0c81e-60c0-de0a-c21d-db075633c447-d99cc347, #w-node-_878c08ac-5f1f-3065-0cd2-4d7a0116f289-d99cc347, #w-node-dff1c029-d2ea-2a2e-4e61-463ea7fae7cb-d99cc347 {
+#w-node-_79f0c81e-60c0-de0a-c21d-db075633c447-d99cc347, #w-node-_878c08ac-5f1f-3065-0cd2-4d7a0116f289-d99cc347, #w-node-dff1c029-d2ea-2a2e-4e61-463ea7fae7cb-d99cc347 {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
