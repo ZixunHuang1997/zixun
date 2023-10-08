@@ -6526,7 +6526,7 @@ figcaption {
 }
 
 .text-block-9 {
-  color: var(--0-85white);
+  color: rgba(255, 255, 255, .6);
   text-align: justify;
   margin-top: 10px;
   font-size: 12px;
