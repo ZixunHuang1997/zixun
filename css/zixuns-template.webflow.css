@@ -5983,6 +5983,10 @@ figcaption {
   right: 0%;
 }
 
+.div-block-28.mobilehide {
+  padding-bottom: 0;
+}
+
 .div-block-29 {
   z-index: 0;
   width: 100%;
@@ -6551,6 +6555,10 @@ figcaption {
 
 .div-block-50 {
   margin-top: 140px;
+}
+
+.div-block-51 {
+  padding-bottom: 140px;
 }
 
 @media screen and (min-width: 1920px) {
@@ -9063,6 +9071,10 @@ figcaption {
     margin-bottom: 100px;
   }
 
+  .div-block-28.mobilehide {
+    display: none;
+  }
+
   .div-block-35 {
     width: 100%;
   }
@@ -9076,6 +9088,10 @@ figcaption {
 
   .heading-4 {
     font-size: 30px;
+  }
+
+  .heading-4.mobilehide {
+    display: none;
   }
 
   .text-block-7 {
@@ -9140,6 +9156,10 @@ figcaption {
 
   .text-span-38, .text-span-39 {
     font-size: 8px;
+  }
+
+  .div-block-51.mobilehide {
+    display: none;
   }
 }
 
