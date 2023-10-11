@@ -48778,10 +48778,10 @@
     const map2 = /* @__PURE__ */ new WeakMap();
     const memFn = (arg) => {
       if (!(0, import_isObject.default)(arg) && !(0, import_isBoolean.default)(arg)) {
-        throw new TypeError(
-          `weakMemo: Expected an object or boolean as an argument to ${// @ts-expect-error - TS2339 - Property 'displayName' does not exist on type 'F'.
-          memFn.displayName} but got ${String(arg)}`
-        );
+        const errorMessage = `Expected an object or boolean as an argument to "${// @ts-expect-error - TS2339 - Property 'displayName' does not exist on type 'F'.
+        fn.displayName || fn.name}()", but received ${String(arg)}.`;
+        const fnString = fn.toString().slice(0, 2e5);
+        throw new WeakMemoError({ message: errorMessage, fn: fnString });
       }
       const key2 = typeof arg === "boolean" ? arg && True || False : arg;
       if (!map2.has(key2)) {
@@ -48796,7 +48796,7 @@
     }
     return memFn;
   }
-  var import_reselect, import_lru_cache, import_isBoolean, import_isFunction, import_isObject, True, False, is, isEqual2, cacheMemo, defaultLastArg, singleMemo, once;
+  var import_reselect, import_lru_cache, import_isBoolean, import_isFunction, import_isObject, True, False, is, isEqual2, cacheMemo, defaultLastArg, singleMemo, once, WeakMemoError;
   var init_memo = __esm({
     "packages/utilities/memo/index.ts"() {
       import_reselect = __toESM(require_lib4());
@@ -48877,6 +48877,18 @@
           }
           return result;
         };
+      };
+      WeakMemoError = class extends TypeError {
+        fn;
+        constructor(opts) {
+          super();
+          if (TypeError.captureStackTrace) {
+            TypeError.captureStackTrace(this, WeakMemoError);
+          }
+          this.name = "WeakMemoError";
+          this.message = opts.message;
+          this.fn = opts.fn;
+        }
       };
     }
   });
