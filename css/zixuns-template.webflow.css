@@ -3135,6 +3135,7 @@ figcaption {
 
 .logo-grid._2 {
   height: 80px;
+  grid-row-gap: 10px;
   object-fit: fill;
   grid-template-columns: 1fr .5fr .8fr 1fr .35fr 1.2fr;
   align-content: stretch;
