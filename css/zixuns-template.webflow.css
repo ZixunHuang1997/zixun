@@ -2399,6 +2399,10 @@ figcaption {
   margin-top: 0;
 }
 
+.subhead._3.mobilehide.hide {
+  display: none;
+}
+
 .subhead._4 {
   max-width: 100%;
   color: var(--white);
@@ -8287,7 +8291,7 @@ figcaption {
     text-align: left;
     margin-top: 40px;
     margin-bottom: 0;
-    font-size: 30px;
+    font-size: 18px;
     font-weight: 300;
   }
 
