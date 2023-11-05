@@ -2388,7 +2388,7 @@ figcaption {
   padding-left: 0%;
   padding-right: 0%;
   font-family: Satoshi, sans-serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 400;
   line-height: 1.2;
   display: block;
@@ -4824,7 +4824,7 @@ figcaption {
   mix-blend-mode: normal;
   flex: 0 auto;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-left: 0;
   font-family: Satoshi, sans-serif;
   font-size: 36px;
@@ -4849,7 +4849,8 @@ figcaption {
 }
 
 .title-2-copy.big.mobilehide {
-  margin-top: 0;
+  margin-top: 20px;
+  margin-bottom: 10px;
   font-size: 54px;
 }
 
