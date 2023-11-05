@@ -4845,7 +4845,7 @@ figcaption {
   text-align: left;
   align-self: flex-end;
   padding-bottom: 5px;
-  font-size: 54px;
+  font-size: 36px;
 }
 
 .title-2-copy.big.mobilehide {
@@ -6353,7 +6353,7 @@ figcaption {
   grid-template-columns: .5fr 1fr;
   grid-auto-columns: 1fr;
   margin: 0 0%;
-  padding: 0 3% 100px;
+  padding: 0 3% 20px;
   display: block;
   position: relative;
 }
@@ -6587,7 +6587,7 @@ figcaption {
   display: none;
 }
 
-.text-block-9 {
+.textblock9 {
   color: var(--0-6white);
   text-align: justify;
   margin-top: 30px;
@@ -6599,9 +6599,10 @@ figcaption {
   line-height: 1.2em;
 }
 
-.text-block-9.mobilehide {
+.textblock9.mobilehide {
   margin-top: 20px;
   margin-right: 0%;
+  padding-bottom: 20px;
 }
 
 .text-span-38, .text-span-39 {
@@ -6636,6 +6637,38 @@ figcaption {
 
 .link-21:hover {
   color: #fff;
+}
+
+.updates {
+  color: var(--0-6white);
+  text-align: justify;
+  margin-top: 30px;
+  margin-right: 20%;
+  padding-right: 0;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.2em;
+}
+
+.updates.mobilehide {
+  color: var(--white);
+  overflow-wrap: normal;
+  margin-top: 20px;
+  margin-right: 0%;
+  padding-bottom: 60px;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1em;
+}
+
+.text-span-42, .text-span-43, .text-span-44 {
+  font-weight: 500;
+}
+
+.div-block-53 {
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 @media screen and (min-width: 1920px) {
@@ -9250,13 +9283,13 @@ figcaption {
     line-height: 1em;
   }
 
-  .text-block-9 {
+  .textblock9 {
     margin-top: 20px;
     margin-right: 0%;
     font-size: 10px;
   }
 
-  .text-block-9.mobilehide {
+  .textblock9.mobilehide {
     display: none;
   }
 
@@ -9265,6 +9298,16 @@ figcaption {
   }
 
   .div-block-50, .div-block-51.mobilehide {
+    display: none;
+  }
+
+  .updates {
+    margin-top: 20px;
+    margin-right: 0%;
+    font-size: 10px;
+  }
+
+  .updates.mobilehide {
     display: none;
   }
 }

@@ -33129,8 +33129,6 @@
         return retargetedEvent;
       };
       EventHandlerProxyWithApolloClient = class {
-        // FIXME: weak type is used
-        // eslint-disable-next-line flowtype/no-weak-types
         apolloClient;
         stripeStore;
         eventHandlers;
@@ -36528,7 +36526,7 @@
   });
 
   // packages/utilities/fp/result/index.ts
-  var create4, returnThis2, VALUE4, ERROR, Ok, ErrPrototype, OkPrototype, either;
+  var create4, returnThis2, VALUE4, ERROR, FOLD2, Ok, ErrPrototype, OkPrototype, either;
   var init_result = __esm({
     "packages/utilities/fp/result/index.ts"() {
       "use strict";
@@ -36536,38 +36534,37 @@
       returnThis2 = function() {
         return this;
       };
-      VALUE4 = "@webflow/Result/value";
-      ERROR = "@webflow/Result/error";
+      VALUE4 = Symbol();
+      ERROR = Symbol();
+      FOLD2 = Symbol();
       Ok = (value2) => {
         const object = create4(OkPrototype);
         object[VALUE4] = value2;
         return object;
       };
-      ErrPrototype = {};
-      OkPrototype = {};
-      ErrPrototype.map = returnThis2;
-      OkPrototype.map = function(f) {
-        return Ok(f(this[VALUE4]));
+      ErrPrototype = {
+        map: returnThis2,
+        chain: returnThis2,
+        ap: returnThis2,
+        [FOLD2]: function(errorHandler, _) {
+          return errorHandler(this[ERROR]);
+        }
       };
-      ErrPrototype.chain = returnThis2;
-      OkPrototype.chain = function(f) {
-        return f(this[VALUE4]);
+      OkPrototype = {
+        map(f) {
+          return Ok(f(this[VALUE4]));
+        },
+        chain(f) {
+          return f(this[VALUE4]);
+        },
+        ap(m) {
+          return m.map(this[VALUE4]);
+        },
+        [FOLD2]: function(errorHandler, valueHandler) {
+          return valueHandler(this[VALUE4]);
+        }
       };
-      ErrPrototype.ap = returnThis2;
-      OkPrototype.ap = function(m) {
-        return m.map(this[VALUE4]);
-      };
-      ErrPrototype.foldResult = function(errorHandler) {
-        return errorHandler(this[ERROR]);
-      };
-      OkPrototype.foldResult = function(errorHandler, valueHandler) {
-        return valueHandler(this[VALUE4]);
-      };
-      either = (mapErr) => (mapVal) => (result) => (
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore private foldResult
-        result.foldResult(mapErr, mapVal)
-      );
+      either = (mapErr) => (mapVal) => (result) => result[FOLD2](mapErr, mapVal);
     }
   });
 
@@ -36695,7 +36692,8 @@
       compose(compose(getConst))(thrush(Const));
       constantNone = constant(None);
       okToOption = either(constantNone)(Some);
-      errToOption = either(Some)(constantNone);
+      errToOption = // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      either(Some)(constantNone);
       extractBool = maybe(false)(identity);
       extractArray = maybe(emptyArray)(identity);
       extractFunctionFromOption = maybe(identity)(identity);
@@ -50301,8 +50299,6 @@
             this.store.elementInstances[index2] = {};
           }
         }
-        // FIXME: weak type is used
-        // eslint-disable-next-line flowtype/no-weak-types
         createElement(type, index2, options) {
           if (!this.isInitialized()) {
             throw new Error(
@@ -50318,8 +50314,6 @@
           this.store.elementInstances[index2][type] = el;
           return el;
         }
-        // FIXME: weak type is used
-        // eslint-disable-next-line flowtype/no-weak-types
         updateCartPaymentRequest(index2, orderData, siteData) {
           const stripeInstance = this.getStripeInstance();
           const requiresShipping = Boolean(orderData.statusFlags.requiresShipping);
