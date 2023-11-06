@@ -4378,7 +4378,7 @@ figcaption {
 }
 
 .caption-eyebrow {
-  color: var(--white);
+  color: var(--0-85white);
   letter-spacing: .06em;
   font-size: 10px;
   font-style: normal;
