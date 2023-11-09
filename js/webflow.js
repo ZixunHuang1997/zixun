@@ -884,9 +884,9 @@
         _.debounce = function(func, wait, immediate) {
           var timeout, args, context, timestamp, result;
           var later = function() {
-            var last2 = _.now() - timestamp;
-            if (last2 < wait) {
-              timeout = setTimeout(later, wait - last2);
+            var last = _.now() - timestamp;
+            if (last < wait) {
+              timeout = setTimeout(later, wait - last);
             } else {
               timeout = null;
               if (!immediate) {
@@ -6349,11 +6349,11 @@
           var S = toString4(requireObjectCoercible($this));
           var position2 = toIntegerOrInfinity(pos);
           var size2 = S.length;
-          var first2, second;
+          var first, second;
           if (position2 < 0 || position2 >= size2)
             return CONVERT_TO_STRING ? "" : void 0;
-          first2 = charCodeAt(S, position2);
-          return first2 < 55296 || first2 > 56319 || position2 + 1 === size2 || (second = charCodeAt(S, position2 + 1)) < 56320 || second > 57343 ? CONVERT_TO_STRING ? charAt(S, position2) : first2 : CONVERT_TO_STRING ? stringSlice(S, position2, position2 + 2) : (first2 - 55296 << 10) + (second - 56320) + 65536;
+          first = charCodeAt(S, position2);
+          return first < 55296 || first > 56319 || position2 + 1 === size2 || (second = charCodeAt(S, position2 + 1)) < 56320 || second > 57343 ? CONVERT_TO_STRING ? charAt(S, position2) : first : CONVERT_TO_STRING ? stringSlice(S, position2, position2 + 2) : (first - 55296 << 10) + (second - 56320) + 65536;
         };
       };
       module2.exports = {
@@ -7188,7 +7188,7 @@
       var queueMicrotask2 = queueMicrotaskDescriptor && queueMicrotaskDescriptor.value;
       var flush;
       var head;
-      var last2;
+      var last;
       var notify;
       var toggle;
       var node;
@@ -7208,11 +7208,11 @@
               if (head)
                 notify();
               else
-                last2 = void 0;
+                last = void 0;
               throw error;
             }
           }
-          last2 = void 0;
+          last = void 0;
           if (parent2)
             parent2.enter();
         };
@@ -7243,13 +7243,13 @@
       }
       module2.exports = queueMicrotask2 || function(fn) {
         var task = { fn, next: void 0 };
-        if (last2)
-          last2.next = task;
+        if (last)
+          last.next = task;
         if (!head) {
           head = task;
           notify();
         }
-        last2 = task;
+        last = task;
       };
     }
   });
@@ -16365,12 +16365,12 @@
         if (funcs.length === 1) {
           return funcs[0];
         }
-        var last2 = funcs[funcs.length - 1];
+        var last = funcs[funcs.length - 1];
         var rest = funcs.slice(0, -1);
         return function() {
           return rest.reduceRight(function(composed, f) {
             return f(composed);
-          }, last2.apply(void 0, arguments));
+          }, last.apply(void 0, arguments));
         };
       }
     }
@@ -16911,8 +16911,8 @@
         }
         return out;
       }
-      function doMerge(fAddDefaults, fDeep, first2) {
-        var out = first2;
+      function doMerge(fAddDefaults, fDeep, first) {
+        var out = first;
         !(out != null) && throwStr(false ? "At least one object should be provided to merge()" : INVALID_ARGS);
         var fChanged = false;
         for (var _len = arguments.length, rest = Array(_len > 3 ? _len - 3 : 0), _key = 3; _key < _len; _key++) {
@@ -24269,17 +24269,17 @@
       };
       var toNumber = function(argument) {
         var it = toPrimitive(argument, "number");
-        var first2, third, radix, maxCode, digits, length2, index2, code;
+        var first, third, radix, maxCode, digits, length2, index2, code;
         if (isSymbol(it))
           throw TypeError2("Cannot convert a Symbol value to a number");
         if (typeof it == "string" && it.length > 2) {
           it = trim2(it);
-          first2 = charCodeAt(it, 0);
-          if (first2 === 43 || first2 === 45) {
+          first = charCodeAt(it, 0);
+          if (first === 43 || first === 45) {
             third = charCodeAt(it, 2);
             if (third === 88 || third === 120)
               return NaN;
-          } else if (first2 === 48) {
+          } else if (first === 48) {
             switch (charCodeAt(it, 1)) {
               case 66:
               case 98:
@@ -26248,9 +26248,9 @@
             return new C(function(observer) {
               return _this4.subscribe({
                 next: function(value2) {
-                  var first2 = !hasValue;
+                  var first = !hasValue;
                   hasValue = true;
-                  if (!first2 || hasSeed) {
+                  if (!first || hasSeed) {
                     try {
                       acc = fn(acc, value2);
                     } catch (e) {
@@ -26657,8 +26657,8 @@
           });
         }
       };
-      concat = function(first2, second) {
-        var firstLink = toLink(first2);
+      concat = function(first, second) {
+        var firstLink = toLink(first);
         if (isTerminating(firstLink)) {
           console.warn(new LinkError("You are calling concat on a terminating link, which will have no effect", firstLink));
           return firstLink;
@@ -32265,8 +32265,8 @@
         }
         return LinkError4;
       }(Error);
-      concat2 = function(first2, second) {
-        var firstLink = toLink2(first2);
+      concat2 = function(first, second) {
+        var firstLink = toLink2(first);
         if (isTerminating2(firstLink)) {
           return firstLink;
         }
@@ -32744,8 +32744,8 @@
         }
         return LinkError4;
       }(Error);
-      concat3 = function(first2, second) {
-        var firstLink = toLink3(first2);
+      concat3 = function(first, second) {
+        var firstLink = toLink3(first);
         if (isTerminating3(firstLink)) {
           return firstLink;
         }
@@ -36581,7 +36581,6 @@
       emptyObject2 = {};
       if (false) {
         const proxy = (sharedConstantName) => ({
-          // @ts-expect-error - TS7006 - Parameter 'target' implicitly has an 'any' type. | TS7006 - Parameter 'prop' implicitly has an 'any' type. | TS7006 - Parameter 'value' implicitly has an 'any' type.
           set: (target, prop, value2) => {
             console.error(
               'Invalid mutation of shared constant. Property "%s" was set on "%s".',
@@ -36589,20 +36588,14 @@
               sharedConstantName
             );
             target[prop] = value2;
+            return true;
           }
         });
         emptyArray = new Proxy(emptyArray, proxy("emptyArray"));
-        emptyObject2 = new Proxy(
-          emptyObject2,
-          // @ts-expect-error - TS2345 - Argument of type '{ set: (target: any, prop: any, value: any) => void; }' is not assignable to parameter of type 'ProxyHandler<any>'.
-          proxy("emptyObject")
-        );
+        emptyObject2 = new Proxy(emptyObject2, proxy("emptyObject"));
       }
       identity = (x) => x;
-      constant = (x) => (
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        (y) => x
-      );
+      constant = (x) => (_) => x;
       compose = (f) => (g) => (x) => f(g(x));
       flip = (f) => (x) => (y) => f(y)(x);
       thrush = (x) => (f) => f(x);
@@ -36614,16 +36607,16 @@
       resultToBool = either(constantFalse)(constantTrue);
       isNil = (value2) => value2 == null;
       notNil = complement(isNil);
-      unionWith = (combine) => (first2) => first2 === emptyObject2 ? identity : (second) => {
+      unionWith = (combine) => (first) => first === emptyObject2 ? identity : (second) => {
         if (second === emptyObject2)
-          return first2;
+          return first;
         let changedFromFirst = false;
         let changedFromSecond = false;
         const result = {};
         for (const key2 in second) {
           const secondVal = second[key2];
-          if (key2 in first2) {
-            const firstVal = first2[key2];
+          if (key2 in first) {
+            const firstVal = first[key2];
             const finalVal = combine(firstVal)(secondVal);
             if (finalVal !== secondVal) {
               changedFromSecond = true;
@@ -36637,21 +36630,19 @@
             result[key2] = secondVal;
           }
         }
-        for (const key2 in first2) {
+        for (const key2 in first) {
           if (key2 in result)
             continue;
           changedFromSecond = true;
-          result[key2] = first2[key2];
+          result[key2] = first[key2];
         }
         if (!changedFromFirst)
-          return first2;
+          return first;
         if (!changedFromSecond)
           return second;
         return result;
       };
-      union = unionWith(
-        constant
-      );
+      union = unionWith(constant);
       unionTo = flip(union);
       zipWith = (f) => (xs) => (ys) => {
         const rv = [];
@@ -41449,15 +41440,15 @@
           return low;
         }
         function userOffsets() {
-          var startYear = (/* @__PURE__ */ new Date()).getFullYear() - 2, last2 = new OffsetAt(new Date(startYear, 0, 1)), offsets = [last2], change, next, i;
+          var startYear = (/* @__PURE__ */ new Date()).getFullYear() - 2, last = new OffsetAt(new Date(startYear, 0, 1)), offsets = [last], change, next, i;
           for (i = 1; i < 48; i++) {
             next = new OffsetAt(new Date(startYear, i, 1));
-            if (next.offset !== last2.offset) {
-              change = findChange(last2, next);
+            if (next.offset !== last.offset) {
+              change = findChange(last, next);
               offsets.push(change);
               offsets.push(new OffsetAt(new Date(change.at + 6e4)));
             }
-            last2 = next;
+            last = next;
           }
           for (i = 0; i < 4; i++) {
             offsets.push(new OffsetAt(new Date(startYear + i, 0, 1)));
@@ -42633,51 +42624,24 @@
     }
   });
 
-  // node_modules/lodash/head.js
-  var require_head = __commonJS({
-    "node_modules/lodash/head.js"(exports2, module2) {
-      function head(array) {
-        return array && array.length ? array[0] : void 0;
-      }
-      module2.exports = head;
-    }
-  });
-
-  // node_modules/lodash/first.js
-  var require_first = __commonJS({
-    "node_modules/lodash/first.js"(exports2, module2) {
-      module2.exports = require_head();
-    }
-  });
-
-  // node_modules/lodash/last.js
-  var require_last = __commonJS({
-    "node_modules/lodash/last.js"(exports2, module2) {
-      function last2(array) {
-        var length2 = array == null ? 0 : array.length;
-        return length2 ? array[length2 - 1] : void 0;
-      }
-      module2.exports = last2;
-    }
-  });
-
   // packages/systems/dynamo/utils/ParamFieldPathUtils/index.ts
-  var import_first, import_last, SEPARATOR, isFieldOfItemRef, getValueFieldSlug, getItemRefSlug, createFieldPath;
+  var SEPARATOR, isFieldOfItemRef, getValueFieldSlug, getItemRefSlug, createFieldPath;
   var init_ParamFieldPathUtils = __esm({
     "packages/systems/dynamo/utils/ParamFieldPathUtils/index.ts"() {
       "use strict";
-      import_first = __toESM(require_first());
-      import_last = __toESM(require_last());
       SEPARATOR = ":";
       isFieldOfItemRef = (fieldPath) => fieldPath.indexOf(SEPARATOR) !== -1;
-      getValueFieldSlug = (fieldPath) => (
-        // @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type 'string'.
-        (0, import_last.default)(fieldPath.split(SEPARATOR))
-      );
-      getItemRefSlug = (fieldPath) => (
-        // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | null'.
-        isFieldOfItemRef(fieldPath) ? (0, import_first.default)(fieldPath.split(SEPARATOR)) : null
-      );
+      getValueFieldSlug = (fieldPath) => {
+        const splitPath = fieldPath.split(SEPARATOR);
+        return splitPath[splitPath.length - 1];
+      };
+      getItemRefSlug = (fieldPath) => {
+        if (isFieldOfItemRef(fieldPath)) {
+          const splitPath = fieldPath.split(SEPARATOR);
+          return splitPath[0];
+        }
+        return null;
+      };
       createFieldPath = (...fieldSlugs) => fieldSlugs.join(SEPARATOR);
     }
   });
@@ -44927,7 +44891,32 @@
   });
 
   // packages/systems/dynamo/utils/Transformers/Transformers.ts
-  var import_escape, import_moment_timezone3, isSimpleDateFormat, date, detailPage, style, numberPrecision, rich, replaceDetailPageHrefCollectionSlug, get5, price, transformerIndex, transformers;
+  function getTransformerFn(fnKey) {
+    switch (fnKey) {
+      case "date": {
+        return date;
+      }
+      case "detailPage": {
+        return detailPage;
+      }
+      case "style": {
+        return style;
+      }
+      case "numberPrecision": {
+        return numberPrecision;
+      }
+      case "rich": {
+        return rich;
+      }
+      case "price": {
+        return price;
+      }
+      default: {
+        return null;
+      }
+    }
+  }
+  var import_escape, import_moment_timezone3, isSimpleDateFormat, date, detailPage, style, numberPrecision, rich, replaceDetailPageHrefCollectionSlug, get5, price, transformers;
   var init_Transformers = __esm({
     "packages/systems/dynamo/utils/Transformers/Transformers.ts"() {
       "use strict";
@@ -45005,17 +44994,9 @@
           context.currencySettings
         );
       };
-      transformerIndex = {
-        date,
-        detailPage,
-        style,
-        numberPrecision,
-        rich,
-        price
-      };
       transformers = (value2, filter, context) => {
         const { type: key2, params } = filter;
-        const fn = transformerIndex[key2];
+        const fn = getTransformerFn(key2);
         return fn ? fn(value2, params, context) : value2;
       };
     }
@@ -46708,7 +46689,7 @@
         var init3 = arguments.length > 0 ? arguments[0] : void 0;
         var that = this;
         var entries = [];
-        var iteratorMethod, iterator, next, step, entryIterator, entryNext, first2, second, key2;
+        var iteratorMethod, iterator, next, step, entryIterator, entryNext, first, second, key2;
         setInternalState(that, {
           type: URL_SEARCH_PARAMS,
           entries,
@@ -46725,9 +46706,9 @@
               while (!(step = call(next, iterator)).done) {
                 entryIterator = getIterator(anObject(step.value));
                 entryNext = entryIterator.next;
-                if ((first2 = call(entryNext, entryIterator)).done || (second = call(entryNext, entryIterator)).done || !call(entryNext, entryIterator).done)
+                if ((first = call(entryNext, entryIterator)).done || (second = call(entryNext, entryIterator)).done || !call(entryNext, entryIterator).done)
                   throw TypeError2("Expected sequence with length 2");
-                push(entries, { key: $toString(first2.value), value: $toString(second.value) });
+                push(entries, { key: $toString(first.value), value: $toString(second.value) });
               }
             } else
               for (key2 in init3)
