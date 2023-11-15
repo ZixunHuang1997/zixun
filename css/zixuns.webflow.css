@@ -4741,6 +4741,10 @@ figcaption {
   margin-right: 0%;
 }
 
+.no-link-block.mobilehide {
+  margin-top: 40px;
+}
+
 .award_publication {
   width: 100%;
   grid-column-gap: 25px;
