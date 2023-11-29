@@ -36662,25 +36662,23 @@
         return isNaN(parsed) ? None : Some(parsed);
       };
       safeParseInt = parseIntWithRadix(10);
-      flatMap = (f) => (
-        // @ts-expect-error - TS2322 - Type '(arg1: unknown[]) => unknown' is not assignable to type '(arg1: a[]) => b[]'.
-        reduce2((result, item) => {
-          const ys = f(item);
-          if (!ys.length) {
-            return result;
-          }
-          const nextResult = result.length ? result : [];
-          nextResult.push.apply(nextResult, ys);
-          return nextResult;
-        })(emptyArray)
-      );
+      flatMap = (f) => reduce2((result, item) => {
+        const ys = f(item);
+        if (!ys.length) {
+          return result;
+        }
+        const nextResult = result.length ? result : [];
+        nextResult.push.apply(nextResult, ys);
+        return nextResult;
+      })(emptyArray);
       flat = flatMap(
         identity
       );
       view = // @ts-expect-error Argument of type '<A>(arg1: (arg2: A) => unknown) => (arg3: A) => unknown' is not assignable to parameter of type '(arg1: unknown) => (arg3: unknown) => unknown'.  Types of parameters 'arg1' and 'arg1' are incompatible.  Type 'unknown' is not assignable to type '(arg2: unknown) => unknown'.
       compose(compose(getConst))(thrush(Const));
       constantNone = constant(None);
-      okToOption = either(constantNone)(Some);
+      okToOption = // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      either(constantNone)(Some);
       errToOption = // eslint-disable-next-line @typescript-eslint/no-explicit-any
       either(Some)(constantNone);
       extractBool = maybe(false)(identity);
@@ -53904,7 +53902,7 @@
         handlerProxy2.on(
           "keydown",
           isPlaceOrderButtonEvent,
-          // eslint-disable-next-line no-shadow
+          // eslint-disable-next-line @typescript-eslint/no-shadow
           (event, apolloClient2, StripeStore3) => {
             if (event.which === 32) {
               event.preventDefault();
@@ -53917,7 +53915,7 @@
         handlerProxy2.on(
           "keyup",
           isPlaceOrderButtonEvent,
-          // eslint-disable-next-line no-shadow
+          // eslint-disable-next-line @typescript-eslint/no-shadow
           (event, apolloClient2, StripeStore3) => {
             if (event.which === 32) {
               return handlePlaceOrder(event, apolloClient2, StripeStore3);
