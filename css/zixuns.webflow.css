@@ -6699,6 +6699,7 @@ figcaption {
 }
 
 .div-block-53 {
+  margin-top: 60px;
   margin-left: 3%;
   margin-right: 3%;
 }
@@ -6733,7 +6734,7 @@ figcaption {
   grid-template-columns: .3fr 1fr;
   grid-auto-columns: 1fr;
   margin-top: 15px;
-  padding-bottom: 60px;
+  padding-bottom: 20px;
   display: flex;
 }
 
