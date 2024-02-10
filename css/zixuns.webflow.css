@@ -6675,7 +6675,7 @@ figcaption {
   font-size: 14px;
   font-style: italic;
   font-weight: 300;
-  line-height: 1.2em;
+  line-height: 0.95em;
 }
 
 .updates.mobilehide {
@@ -6687,7 +6687,7 @@ figcaption {
   font-size: 14px;
   font-style: normal;
   font-weight: 300;
-  line-height: 1em;
+  line-height: 0.95em;
 }
 
 .updates.mobilehide.head {
