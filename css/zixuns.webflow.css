@@ -6605,6 +6605,7 @@ figcaption {
   line-height: 1em;
 }
 
+
 .link-20 {
   color: var(--0-85white);
 }
@@ -6694,8 +6695,8 @@ figcaption {
 .updates.mobilehide.head {
   font-size: 14px;
 }
-.updates.mobilehide.br {
-  line-height: 0.95em;
+.text-span-br {
+  line-height: 0.5em;
 }
 
 .text-span-42, .text-span-43, .text-span-44 {
