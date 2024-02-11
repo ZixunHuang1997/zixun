@@ -4233,8 +4233,8 @@ figcaption {
   font-variation-settings: "opsz"32, "wght"450;
   letter-spacing: -.01em;
   padding-bottom: 5px;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 300;
   line-height: 1em;
   position: relative;
 }
@@ -4936,8 +4936,8 @@ figcaption {
   color: var(--white);
   font-variation-settings: "opsz"32, "wght"450;
   letter-spacing: -.01em;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 300;
   line-height: 1em;
   position: relative;
 }
