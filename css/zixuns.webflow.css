@@ -4849,8 +4849,8 @@ figcaption {
 
 .title-2-copy.big {
   margin-top: 10px;
-  margin-bottom: 0;
-  font-size: 54px;
+  margin-bottom: 5px;
+  font-size: 32px;
   text-decoration: none;
 }
 
@@ -6667,13 +6667,14 @@ figcaption {
 }
 
 .updates {
-  color: var(--0-6white);
+  color: var(--white);
   text-align: justify;
-  margin-top: 30px;
-  margin-right: 20%;
+  overflow-wrap: normal;
+  margin-top: 5px;
+  margin-right: 0%;
   padding-right: 0;
   font-size: 14px;
-  font-style: italic;
+  font-style: normal;
   font-weight: 300;
   line-height: 0.95em;
 }
