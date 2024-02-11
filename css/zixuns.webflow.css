@@ -8987,6 +8987,7 @@ figcaption {
   .title-2-copy.big {
     font-size: 28px;
     font-weight: 400;
+    display: none;
   }
 
   .title-2-copy.big.right {
